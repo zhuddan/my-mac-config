@@ -175,7 +175,9 @@ function g() {
     echo "Cloning repository '$repoUrl'..."
     git clone "$repoUrl"
   else
-    local targetDir=~/projects/"$dir"
+    local targetBase="$HOME/projects"
+    local targetDir="$targetBase/$dir"
+    mkdir -p "$targetBase"
     echo "Cloning repository '$repoUrl' into directory '$targetDir'..."
     git clone "$repoUrl" "$targetDir"
   fi
