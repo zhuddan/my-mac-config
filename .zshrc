@@ -188,5 +188,6 @@ function go() {
   git remote -v
 }
 
-
-# source ~/.zshrc
+function rec() {
+  source ~/.zshrc
+}
