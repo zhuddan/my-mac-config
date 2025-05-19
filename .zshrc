@@ -117,7 +117,6 @@ function serve() {
   fi
 }
 
-
 # npm run tag
 function tag() {
   local projectName="$1"
@@ -128,7 +127,6 @@ function tag() {
     nr "tag:$projectName"
   fi
 }
-alias t='tag'
 
 # 发布公共包
 function pub() {
