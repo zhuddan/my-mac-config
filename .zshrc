@@ -175,8 +175,9 @@ function g() {
     echo "Cloning repository '$repoUrl'..."
     git clone "$repoUrl"
   else
-    echo "Cloning repository '$repoUrl' into directory '$dir'..."
-    git clone "$repoUrl" "$dir"
+    local targetDir=~/projects/"$dir"
+    echo "Cloning repository '$repoUrl' into directory '$targetDir'..."
+    git clone "$repoUrl" "$targetDir"
   fi
 }
 
@@ -184,3 +185,6 @@ function g() {
 function go() {
   git remote -v
 }
+
+
+# source ~/.zshrc
