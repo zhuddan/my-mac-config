@@ -1,12 +1,17 @@
+# nvm 配置相关
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+# npm 全局包 pnpm/yarn... 配置
+export PATH="$PATH:$(npm config get prefix)/bin"
 
 # npm run dev
 function dev() {
   local projectName="$1"
-
   if [ -z "$projectName" ]; then
     nr dev
   else
@@ -149,6 +154,9 @@ function hs() {
 }
 
 # vscode 打开当前目录并且自动下载依赖
+# ps mac 端的vscode 需要在 vscode 中 command + shift + p 搜索
+# shell command install 'code' command in path
+# 并且执行
 function vs() {
   echo "Opening VS Code..."
   code .
@@ -191,3 +199,8 @@ function go() {
 function rec() {
   source ~/.zshrc
 }
+
+function cls(){ 
+  clear
+}
+
